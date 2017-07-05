@@ -1,15 +1,18 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  layout "blog"
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @page_title = @blog.title
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new
@@ -70,5 +73,15 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body)
+    end
+    
+    def toggle_status
+      if @blog.draft?
+        @blog.published!
+     elsif @blog.published?
+        @blog.draft!
+      end
+         
+     redirect_to blogs_url, notice: 'Post status has been updated.'
     end
 end
