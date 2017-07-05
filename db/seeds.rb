@@ -2,7 +2,7 @@
   Topic.create(
     title: "Topic #{topic}"
     )
-  end  
+end  
 10.times do |blog|
 Blog.create!(  
     title: "My Blog Post #{blog}",
@@ -15,7 +15,7 @@ Blog.create!(
     velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
   topic_id: Topic.last.id
     )
-  end
+end
   
   puts "10 blog posts created" 
     
@@ -61,6 +61,6 @@ puts "You created portfolio Items"
     name: "Technology #{technology}",
     portfolio_id: Portfolio.last.id
     )
-  end
+end
   
   puts "3 technologies created"
