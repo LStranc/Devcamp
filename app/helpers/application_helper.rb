@@ -16,3 +16,7 @@ end
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+  
+  def copyright_generator
+    DevcampViewTool::Renderer.copyright 'Logan Stranc', 'All Rights Reserved'
+  end
