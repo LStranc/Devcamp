@@ -8,7 +8,7 @@ module ApplicationHelper
        (link_to "Login", new_user_session_path)
      end
    end
-end
+
 
   def source_helper(layout_name)
     if session[:source]
@@ -18,5 +18,6 @@ end
   end
   
   def copyright_generator
-    DevcampViewTool::Renderer.copyright 'Logan Stranc', 'All Rights Reserved'
+    @copyright =  StrancViewTool::Renderer.copyright 'Logan Stranc', 'All Rights Reserved'
   end
+end

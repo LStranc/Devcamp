@@ -1,8 +1,8 @@
 GIT
-  remote: https://github.com/jordanhudgens/devcamp_view_tool
-  revision: e77443eda3c10af42894f06648ae8028b6dcf4eb
+  remote: https://github.com/Strancy27/stranc_view_tool
+  revision: 7390be7c2d849aee5f8e8ceab4090deda694d958
   specs:
-    devcamp_view_tool (0.1.0)
+    stranc_view_tool (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -192,7 +192,6 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
-  devcamp_view_tool!
   devise (~> 4.3)
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
@@ -205,6 +204,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  stranc_view_tool!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
