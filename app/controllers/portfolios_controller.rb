@@ -1,5 +1,8 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
   layout 'portfolio'
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  
   def index
     @portfolio_items = Portfolio.all
   end
@@ -45,28 +48,30 @@ class PortfoliosController < ApplicationController
   @portfolio_item = Portfolio.find(params[:id])
   end
   
-   def destroy
-    # Perform the lookup
+  def destroy
+  # Perform the lookup
+  @portfolio_item = Portfolio.find(params[:id])
+
+   # Destroy/delete the record
+  @portfolio_item.destroy
+
+  # Redirect
+  respond_to do |format|
+    format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
+   end
+  end
+   
+ private
+ def portfolio_params
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [:name]
+                                      )
+ end
+
+ def set_portfolio_item
     @portfolio_item = Portfolio.find(params[:id])
-
-    # Destroy/delete the record
-    @portfolio_item.destroy
-
-    # Redirect
-    respond_to do |format|
-      format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
-    end
-   end
-   
-   private
-   def portfolio_params
-      params.require(:portfolio).permit(:title,
-                                        :subtitle,
-                                        :body,
-                                        technologies_attributes: [:name]
-                                        )
-   end
-
-   
+ end
    
 end
