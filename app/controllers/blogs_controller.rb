@@ -10,8 +10,8 @@ class BlogsController < ApplicationController
       @blogs = Blog.recent.page(params[:page]).per(5)
     else
       @blogs = Blog.published.recent.page(params[:page]).per(5)
-    @page_title = "My Portfolio Blog"
     end
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
     if logged_in?(:site_admin) || @blog.published?
       @blog = Blog.includes(:comments).friendly.find(params[:id])
       @comment = Comment.new
-      
+
       @page_title = @blog.title
       @seo_keywords = @blog.body
     else
@@ -91,6 +91,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id)
     end
 end
