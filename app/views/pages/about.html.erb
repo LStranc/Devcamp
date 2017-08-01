@@ -1,24 +1,93 @@
-<h1>About Me</h1>
+<div class="app-card-container">
+  <div class="card">
+    <h1>About Me</h1>
+    
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-5">
+        <%= image_tag "logan_portfolio_real_image.jpg", width: 450, alt: "profile image", class: 'profile-image'%>
+      
+        <div class="skills">
+          <% @skills.each do |skill| %>
+            <div class="skill">
+              <h4><%= skill.title %></h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning"
+                role="progressbar"
+                aria-valuenow="<%= skill.percent_utilized %>"
+                aria-valuemax="100"
+                style="width: <%= skill.percent_utilized %>% ">
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>      
+      </div>
+    
+      <div class="col-md-7">
+        <p>I have just started coding this year and it has been a great experience fo me.
+        It allows you to think outside of the box and work hard. There are so many different
+        ways that coding can help you in the future. I would definitely recomend that every
+        person should get to take some type of coding class in their life.</p>
+    
+        <p>Eventhough I love to code and am looking forward getting to learn more in the future,
+        I have many other interests. I have been playing the saxophone, piano, and bass clarinet
+        for over 3 years. I have always had a love for watching and playing sports (except baseball).
+        Most of all, I have always had a desire to want to learn as much as I can which has lead me 
+        to this course. Anyways, in the end I would like to thank my family for giving  me the chance
+        to do this and just all the people that could make it happen. I am blessed to
+        live in a time like this and I am greatful that I was given this chance.</p>
+        
+        <p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-toggle="collapse"
+            data-target="#jobHistory"
+            aria-expanded="false"
+            aria-controller="jobHistory"
+          >
+            Job History
+          </button>
 
-<hr>
-
-<div class="row">
-  <div class="col-md-6">
-    <%= image_tag "logan_portfolio_real_image.jpg", width: 450, alt: "profile image" %>
-  </div>
-
-  <div class="col-md-6">
-    <p>I have just started coding this year and it has been a great experience fo me.
-    It allows you to think outside of the box and work hard. There are so many different
-    ways that coding can help you in the future. I would definitely recomend that every
-    person should get to take some type of coding class in their life.</p>
-
-    <p>Eventhough I love to code and am looking forward getting to learn more in the future,
-    I have many other interests. I have been playing the saxophone, piano, and bass clarinet
-    for over 3 years. I have always had a love for watching and playing sports (except baseball).
-    Most of all, I have always had a desire to want to learn as much as I can which has lead me 
-    to this course. Anyways, in the end I would like to thank my family for giving  me the chance
-    to do this and just all the people that could make it happen. I am blessed to
-    live in a time like this and I am greatful that I was given this chance.</p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-toggle="collapse"
+            data-target="#education"
+            aria-expanded="false"
+            aria-controller="education"
+          >
+            Education
+          </button>
+        </p>
+        
+        <p> 
+          <div class="collapse" id="jobHistory">
+            <div class="card card-block">
+              Job
+            </div>
+            
+             <div class="card card-block">
+              Job
+            </div>
+          </div>
+        </p>
+        
+        <p> 
+          <div class="collapse" id="education">
+            <div class="card card-block">
+              School 
+            </div>
+            
+            <div class="card card-block">
+              School 
+            </div>
+          </div>
+        </p>
+        
+      </div>
+    </div>
   </div>
 </div>
