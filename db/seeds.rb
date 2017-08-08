@@ -15,7 +15,7 @@ User.create!(
   name: "Regular User",
 )
   
-  puts "1 regular user created"
+  puts "1 Admin User created"
 
 3.times do |topic|
   Topic.create!(
